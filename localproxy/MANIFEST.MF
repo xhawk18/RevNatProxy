@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: .
+Created-By: xhawk18
+Main-Class: com.revnatproxy.RevNatProxy

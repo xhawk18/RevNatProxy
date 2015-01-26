@@ -1,0 +1,36 @@
+<h1>RevNat Proxy</h1>
+
+<h2>What is RevNat Proxy?</h2>
+<p>
+RevNat Proxy is a online reversed http proxy.
+Suppose that we have two websites --<br/>
+1. A local website behind NAT, <br/>
+&nbsp;&nbsp;&nbsp;http://192.168.1.100:8080/myweb.html<br/>
+2. A public website on internat<br/>
+&nbsp;&nbsp;&nbsp;http://my.public.address.com/jsp<br/>
+<br/>
+Users can visit the local website through online proxy address<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;http://my.public.address.com/jsp/clientname/http://192.168.1.100:8080/myweb.html<br/>
+</p>
+
+<h2>How to setup?</h2>
+<h3>1) Deploy the files in folder "web" to tomcat server on the internat.</h3>
+If you've deployed the web to http://my.public.address.com/jsp, check this address<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;http://my.public.address.com/jsp/get_event.jsp<br/>
+and you'll see "error=parameters" if successful.
+
+<h3>2) Run the application localproxy.jar on a computer in local network</h3>
+Please be sure that the computer that runs localproxy.jar can connect to local web site "http://192.168.1.100:8080/myweb.html".<br/>
+Then run this command to connect to public server.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;java -jar localproxy.jar http://my.public.address.com/jsp/get_event.jsp clientname<br/>
+<br/>
+That's all, now you can visit the local web site behind NAT through public internet address - <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;http://my.public.address.com/jsp/clientname/http://192.168.1.100:8080/myweb.html<br/>
+
+	
+<!--form method='post' 
+1action="get_event.jsp?client=shop2&path=test.jsp&query=abcd"
+action="test.jsp?client=shop2&path=test.jsp&query=abcd">
+<input name='xxx' value='yyy' />
+<input type='submit' value='test' />
+</form-->
